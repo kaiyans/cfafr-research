@@ -1,0 +1,11 @@
+ID,Experiment,Priority,Dependency,Run design,Primary metrics,Role
+E0,Repository truth and state instrumentation,P0,none,audit + unit tests + counters,"hot-start state existence, valid cache hits/misses",required
+E1,State decomposition ablation,P0,E0,19 cases x 5 repeats + large N,"iterations, WS changes, factorization count, time, KKT",required
+E2,Confidence-aware add/release,P0/P1,E0,threshold/corruption grid,"false commits, add/release, refactors, KKT, time",next-paper/core
+E3,Primal-dual/costate transfer,P1,E0,uncondensed Euler LQ-L1 nested meshes,"stationarity, complementarity, first QP/SQP",next-paper/core
+E4,DAQP/qpOASES active-set integration,P1,E1,capability-aware fixed-face or exact split QP,native iterations/time/KKT/active set,strong if available
+E5,Sparse production backend pilot,P1/P2,E1,N=512..8192 uncondensed sparse QP,"end-to-end time, fill, memory, KKT",journal bridge
+E6,Symbolic and interval-local factor reuse,P2,E5,local adaptive refinement,"analysis time, refactorized blocks, residual/inertia",journal
+E7,Mesh-asymptotic face consistency,P1/P2,none,nested N and fine reference,margin-stratified mismatch and rate,theory support
+E8,Residual-to-score certificate,P1,none,fixed active-set strongly convex QPs,"certified radius, commit rate, unsafe count",paper/next-paper
+E9,Full integration and manuscript validation,P0,E0-E8 outputs,artifact build,"PASS/SKIP/FAIL, claim gates, PDFs",required last
